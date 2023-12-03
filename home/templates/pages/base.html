@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        
+        html,
+        body {
+            height: 100%;
+            background-color: #f6f6f6;
+            font-family:'Poppins', sans-serif;
+        }
+
+        .header {
+            line-height: 1;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 5px;
+        }
+        
+        .title-post {
+            text-transform: uppercase;
+        }
+
+        .footer {
+            padding: 1.5rem 0;
+            color: #727272;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-top: .05rem solid #e5e5e5;
+        }
+        .link-text{
+            text-decoration: none;
+            color: rgb(3, 3, 3);
+            font-weight: 100;
+        }
+        .nav a {
+            float: left;
+            text-align: center;
+            padding: 12px;
+            color: rgb(18, 19, 19);
+            text-decoration: none;
+            font-size: 17px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid" style="min-height:95%">
+        <div class="row">
+            <div class="col-sm-1 ">
+                <img src="{% static 'images/user1.png' %}" class="responsive-img" style="max-height:100px" />
+            </div>
+            <div class="col-sm-9 text-center">
+                <h1>ĐỌC TRUYỆN ONLINE</h1>
+            </div>
+            <div class="col-sm-1">
+                {% if user.username %}
+                    <p class="link-text">Xin chào {{user.username}}</p>
+                    <p><a href="logout"class="link-text">Đăng xuất</a></p>
+                {% else %}
+                <p><a href="register" class="link-text">Đăng ký</a>|<a href="login" class="link-text">Đăng nhập</a></p>
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="bs-sliderbar" style="background-color: #ffffff;">
+                    <ul class="nav flex-column">
+                        <a class="h2"><i class="fa fa-reorder"></i>DANH MỤC</a>
+                        <li class="btn btn-outline-warning">
+                            <a href="/" class="active"><i class="fa fa-home"></i>Home</a></i>
+                        </li>
+                        <li class="btn btn-outline-warning">
+                            <a href="/blog" class="active"><i class="fa fa-window-maximize"></i>Bài viết</a>
+                        </li>
+                        <li class="btn btn-outline-warning">
+                            <a href="/blog" class="active"><i class="fa fa-book-open"></i>Truyện mới</a>
+                        </li>
+                        <li class="btn btn-outline-warning">
+                            <a href="/contact" class="active"><i class="fa fa-fw fa-envelope"></i>Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                {% block content %}
+                {% endblock %}
+                
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer container-fluid">
+            <a href="https://www.facebook.com/profile.php?id=100050301381140">Facebook</a>
+            <a href="https://github.com/thaicanhth">Githup</a>
+            <a href="https://www.google.com.vn/?hl=vi">Google</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends "pages\base.html" %}
+{% block title %}{{post.title}}{% endblock %}
+{% block content %}
+        <img src="{{post.images.url}}"alt=""width="180", height="180">
+        <h2 class="title-post">{{post.title}}</h2>
+        <span style="color: grey; margin-bottom: 100px;">on {{post.date}}</span>
+        {{post.body|safe|linebreaks}}
+        <p class="link-text">{{user.email}}</p>
+        <a href="https://webtrainghiem.com/">link</a>
+        
+{% endblock %}

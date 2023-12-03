@@ -1,0 +1,37 @@
+{% extends "pages\base.html" %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+<style>
+    .card{
+        transition: all 0.3s;
+    }
+    .card:hover{
+        transform:scale(1.15);
+    }
+</style>
+<div class="d-flex lex-column">
+{% for post2 in Posts %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="col-sm-1 col-md-2 col-lg-3">
+        <div class="card my-5" style="width: 18rem;">
+            <img class="image-thumbail"style="height: 300px;" src="{{post2.image}}">
+            <div class="card-body">
+                <h5 class="card-title title-post">{{post2.title}}</h5>
+                <p class="card-text">{{post2.subTitle}}</p>
+                <a href="/blog/{{post2.id}}" class="btn btn-outline-dark btn-sm m-1">Đọc Truyện</a>
+            </div>
+        </div>
+    </div>
+
+   
+</body>
+{% endfor %}
+{% endblock %}
